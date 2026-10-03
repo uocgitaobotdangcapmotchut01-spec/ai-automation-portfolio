@@ -1,0 +1,70 @@
+# Repository safety baseline (DEC-008, TASK-003).
+# Secrets and non-public sensitive information must never be committed.
+# This file is a safety net, not a guarantee. It does not affect files that
+# are already tracked by Git, and it can be bypassed with a forced add.
+
+# --- Environment files ---
+.env
+.env.*
+*.env
+.envrc
+!.env.example
+!.env.sample
+
+# --- Credentials, keys, and tokens ---
+secrets/
+.secrets/
+secret.*
+secrets.*
+*.secret
+*.secrets
+credentials
+credentials.*
+*credentials*.json
+client_secret*.json
+service-account*.json
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.ppk
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+.netrc
+.git-credentials
+.npmrc
+.pypirc
+.aws/
+.ssh/
+
+# --- Local configuration that may contain credentials ---
+*.local
+*.local.*
+
+# --- Browser and session artifacts ---
+cookies.txt
+cookies.sqlite
+*.cookies
+.auth/
+auth-state*.json
+storage-state*.json
+storageState*.json
+session.json
+*.session
+*.har
+
+# --- Exported connection data (automation platforms) ---
+*connection*.json
+
+# --- General hygiene ---
+.DS_Store
+Thumbs.db
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
