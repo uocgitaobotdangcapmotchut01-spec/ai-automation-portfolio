@@ -258,3 +258,51 @@ Append-only handoff log. Never edit or delete an existing entry. To correct a mi
   - Human applies and commits TASKS.md and LOG.md.
 - Needs Human Decision:
   - None.
+
+### LOG-009
+- Log ID: LOG-009
+- Date: 2026-10-04
+- Task ID: TASK-004
+- Agent: Claude
+- Context Version: CTX-002
+- Status: IN_PROGRESS
+- Completed:
+  - Started TASK-004 on the Human's explicit approval.
+  - Read PROJECT.md, DECISIONS.md, TASKS.md, LOG.md and AGENT_ACTIVITY.md before making any change.
+- Changes:
+  - TASKS.md: TASK-004 created with State IN_PROGRESS (moved to REVIEW in LOG-010).
+- Problems:
+  - Claude has no GitHub write access. All changes are prepared as files for the Human to apply and commit.
+- Evidence: "Repository read on 2026-10-04 at commit 8f8636e (main). TASK-001 to TASK-003 were DONE, TASK-004 and TASK-005 did not exist, CTX-002 was current, there was no CTX-003, and AGENT_ACTIVITY.md contained only a line break. Nothing was committed by Claude."
+- Next Action:
+  - Apply the approved minimal changes to PROJECT.md, AGENT_ACTIVITY.md, TASKS.md and LOG.md.
+- Needs Human Decision:
+  - None.
+
+### LOG-010
+- Log ID: LOG-010
+- Date: 2026-10-04
+- Task ID: TASK-004
+- Agent: Claude
+- Context Version: CTX-002
+- Status: REVIEW
+- Completed:
+  - Formalized agent roles in PROJECT.md: Human is the final decision-maker; ChatGPT is an advisor with no final authority; Claude executes only when the Human authorizes; Grok is a read-only research and review agent that does not write or commit.
+  - Defined the purpose, the minimal entry format (Date / Agent / Task ID / Action / Result), and short rules of AGENT_ACTIVITY.md.
+  - Recorded TASK-004 in TASKS.md and moved it from IN_PROGRESS to REVIEW. It is not DONE.
+- Changes:
+  - PROJECT.md: the Grok row now reads "Web / visual / UX experimentation; research and review", and an "Authority rules" list was added after the Agent Roles table. No other line changed.
+  - AGENT_ACTIVITY.md: the single line break was replaced with the purpose, entry format, rules, and an empty entries table. No entries were added and no history was backfilled.
+  - TASKS.md: added the TASK-004 row. No other line changed.
+  - LOG.md: appended LOG-009 and this entry. LOG-001 to LOG-008 were not modified.
+  - Not changed: DECISIONS.md, .gitignore, CTX-002. No decision, CTX-003, or TASK-005 was created.
+- Problems:
+  - Claude has no GitHub write access. These changes were prepared as files for the Human to apply and commit.
+  - The Grok role keeps the CTX-002 wording "Web / visual / UX experimentation" and adds "research and review". Its status stays "Not active yet".
+  - The read-only Grok rule and the authorization rule for Claude are now written in PROJECT.md without a new DECISION, as the task scope required. The Human's approval of TASK-004 is their authority.
+  - AGENT_ACTIVITY.md has no entries yet.
+- Evidence: "Prepared in a scratch copy of the repository at commit 8f8636e and checked by script. PROJECT.md: one line removed (the Grok row) and ten lines added; all five authority statements and the AGENT_ACTIVITY.md reference are present; CTX is CTX-002. AGENT_ACTIVITY.md: four headings, the format line, and an empty table header with no entry rows. TASKS.md: one line added and none removed; TASK-001 to TASK-003 are DONE and TASK-004 is REVIEW; 18 acceptance criteria are listed. LOG.md: the previous file is an exact prefix of the new one, so LOG-001 to LOG-008 are unchanged. DECISIONS.md and .gitignore were not touched. A pattern scan of the four changed files found 0 matches (pattern scan only, not a security audit). Not reviewed by ChatGPT. Not committed or pushed by Claude."
+- Next Action:
+  - Human reviews TASK-004 against its 18 acceptance criteria and, if satisfied, applies and commits the four files. Only the Human may mark TASK-004 DONE.
+- Needs Human Decision:
+  - Accept TASK-004, or request changes.

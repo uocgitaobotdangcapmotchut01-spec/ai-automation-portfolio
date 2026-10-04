@@ -69,9 +69,18 @@ Repository safety (DEC-008):
 |---|---|---|
 | ChatGPT | Architecture, planning, project-level reasoning, review | Active |
 | Claude | Implementation, coding, debugging, technical execution | Active |
-| Grok | Web / visual / UX experimentation | Not active yet |
+| Grok | Web / visual / UX experimentation; research and review | Not active yet |
 | Make.com | Future orchestration layer | Not active yet |
 | Human | Final decisions and approval | Active |
+
+Authority rules:
+
+- The Human is the final decision-maker. No agent has final decision authority.
+- ChatGPT is an architecture, planning, and review advisor. It has no final authority.
+- Claude is the implementation and execution agent. It executes only when the Human authorizes it.
+- Grok is a read-only research and review agent. It does not write or commit.
+- Only the Human may move a task from REVIEW to DONE.
+- Agent activity is recorded in `AGENT_ACTIVITY.md`. Recording activity grants no authority.
 
 ## Current Context Version
 
