@@ -237,3 +237,24 @@ Append-only handoff log. Never edit or delete an existing entry. To correct a mi
   - Accept TASK-003 as DONE, or request changes.
   - Whether to enable GitHub's own secret scanning and push protection in the repository settings. This was not checked and cannot be seen from this session.
   - Whether to add a pre-commit check later as a separate task. It was not added, as instructed.
+
+### LOG-008
+- Log ID: LOG-008
+- Date: 2026-10-04
+- Task ID: TASK-003
+- Agent: Claude
+- Context Version: CTX-002
+- Status: DONE
+- Completed:
+  - Recorded the human's explicit approval of TASK-003 as DONE.
+- Changes:
+  - TASKS.md: TASK-003 State changed from REVIEW to DONE. No other field or line changed; Last Updated was not changed.
+  - LOG.md: appended this entry only. LOG-001 to LOG-007 were not modified.
+- Problems:
+  - Claude has no GitHub write access. These changes were prepared as files for the human to apply and commit.
+  - Grok read-only access, Claude's authorized-write role, and the AGENT_ACTIVITY.md protocol are not yet formalized in the repository. Per the human, they do not block TASK-003.
+- Evidence: "Repository read on 2026-10-04 at commit 183c1c4 (main): TASK-003 was in REVIEW, CTX-002 was current, and there was no CTX-003 and no TASK-004. The security baseline checks are recorded in LOG-007 (a pattern scan is not a security audit). No additional security work was done for this entry. Not reviewed by ChatGPT. Nothing was committed by Claude."
+- Next Action:
+  - Human applies and commits TASKS.md and LOG.md.
+- Needs Human Decision:
+  - None.
